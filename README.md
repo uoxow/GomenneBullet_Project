@@ -1,0 +1,2 @@
+# GomenneBullet_Project
+メンヘラの心を読み取るシューティングゲーム
