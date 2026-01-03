@@ -7,7 +7,7 @@ public class PlayerManager : MonoBehaviour
     // プレイヤーの移動速度
     private int moveSpeed = 5; //動く速さ
     public int maxHP = 7; //最大HP
-    private int nowHP; //現在のHP
+    public int nowHP; //現在のHP
     private bool isInvincible;
     public float InvincibleTime = 1f ; //無敵時間(秒)
     private float timer = 0f ;
@@ -47,7 +47,7 @@ public class PlayerManager : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision){
         //ダメージ判定
-        Debug.Log("当たり判定発動相手の名前：" + collision.gameObject.tag);
+        //Debug.Log("当たり判定発動相手の名前：" + collision.gameObject.tag);
         if (collision.gameObject.tag == "Enemy_Bullet" && isInvincible == false){
             nowHP -= 1;
             Debug.Log("HP１減少 / 残り: " + nowHP);
