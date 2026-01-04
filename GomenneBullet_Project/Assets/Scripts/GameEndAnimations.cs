@@ -4,11 +4,17 @@ public class GameEndAnimations : MonoBehaviour
 {
     [SerializeField]
     private Animator animator;
+    [SerializeField]
+    private GameObject GameOverScreen;
+    [SerializeField]
+    private GameObject GameClearScreen;
 
     void Start()
     {
         GameManager.Instance.OnGameOver += sorrow;
         GameManager.Instance.OnGameClear += happiness;
+        GameClearScreen.SetActive(false);
+        GameOverScreen.SetActive(false);
     }
 
     void happiness()
@@ -23,6 +29,15 @@ public class GameEndAnimations : MonoBehaviour
         animator.SetTrigger("sorrow");
     }
 
+    void ShowClearScreen()
+    {
+        GameClearScreen.SetActive(true); 
+    }   
+
+    void ShowGameOverScreen()
+    {
+        GameOverScreen.SetActive(true); 
+    } 
 
     void OnDestroy()
     {
