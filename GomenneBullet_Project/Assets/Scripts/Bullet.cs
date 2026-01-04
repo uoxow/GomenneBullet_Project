@@ -3,7 +3,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     // 弾の速度
-    private int bulletSpeed = 7;
+    private int bulletSpeed = 10;
 
     void Update()
     {
