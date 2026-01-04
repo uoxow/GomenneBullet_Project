@@ -10,10 +10,14 @@ public class EnemyManager : MonoBehaviour
     private int gaugeCountMax = 7;//一つのゲージをためるのに必要なハートのカウント
     public int gaugeCount;
     public int nowGauge;
+    [SerializeField]
+    private GameObject gameObject;
+
     void Start()
     {
         nowGauge = 0;
         gaugeCount = 0;
+        GameManager.Instance.OnGameClear += OBJDelete;
     }
 
     void Update()
@@ -27,7 +31,13 @@ public class EnemyManager : MonoBehaviour
         }*/
     }
 
-    void OnTriggerEnter2D(Collider2D collision){
+    void OBJDelete()
+    {
+        Debug.Log("ゲームクリアによるOBJの破壊");
+        Destroy(gameObject);
+    }
+
+    void OnTriggerEnter2D( Collider2D collision){
         //ダメージ判定
         //Debug.Log("当たり判定発動相手の名前：" + collision.gameObject.tag);
         if (collision.gameObject.tag == "Player_Bullet" /*&& isInvincible == false*/){
@@ -39,9 +49,17 @@ public class EnemyManager : MonoBehaviour
                 Debug.Log("ゲージ１増加 / 合計 " + nowGauge);
             }
         }
-        //HPゼロになったらゲームオーバー処理
-        if(nowGauge == maxGauge){
-            Debug.Log("ゲームクリア");
+        //ゲージが満タンになったらクリア処理
+        if(nowGauge >= maxGauge){
+            GameManager.Instance.SetGameClear();
+        }
+    }
+
+    void OnDestroy()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnGameClear -= OBJDelete;
         }
     }
 

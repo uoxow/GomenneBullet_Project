@@ -11,11 +11,15 @@ public class PlayerManager : MonoBehaviour
     private bool isInvincible;
     public float InvincibleTime = 1f ; //無敵時間(秒)
     private float timer = 0f ;
+    [SerializeField]
+    private GameObject gameObject;
+    private Animator animator;
 
     void Start()
     {
         nowHP = maxHP;
         isInvincible = false;
+        GameManager.Instance.OnGameOver += OBJDelete;
     }
     
     void Update()
@@ -27,7 +31,7 @@ public class PlayerManager : MonoBehaviour
         
         if(isInvincible)
         {
-　　　　　  //ここに無敵状態のときの処理を書く
+　　　　　  //無敵状態の処理
             //Debug.Log("無敵状態");
 
             //毎フレームタイマー変数にTime.deltaTimeを足す
@@ -55,7 +59,21 @@ public class PlayerManager : MonoBehaviour
         }
         //HPゼロになったらゲームオーバー処理
         if(nowHP == 0){
-            Debug.Log("HP０ ゲームオーバー");
+            GameManager.Instance.SetGameOver();
+        }
+    }
+
+    void OBJDelete()
+    {
+        Debug.Log("ゲームオーバーによるOBJの破壊");
+        Destroy(gameObject);
+    }
+
+    void OnDestroy()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnGameOver -= OBJDelete;
         }
     }
 }
