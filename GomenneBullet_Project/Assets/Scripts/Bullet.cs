@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
+        if (!GameManager.Instance.IsGameActive) return;
         //弾を動かす
         transform.position += new Vector3(0, bulletSpeed, 0) * Time.deltaTime;
         

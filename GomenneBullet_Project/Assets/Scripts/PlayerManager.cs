@@ -24,6 +24,8 @@ public class PlayerManager : MonoBehaviour
     
     void Update()
     {   
+        if (!GameManager.Instance.IsGameActive) return;
+        
         //プレイヤーの動き
         float x = Input.GetAxis("Horizontal") * moveSpeed;
         float y = Input.GetAxis("Vertical") * moveSpeed;

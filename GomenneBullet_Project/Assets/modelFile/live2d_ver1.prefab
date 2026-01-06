@@ -1395,6 +1395,7 @@ GameObject:
   - component: {fileID: 8171445008677008625}
   - component: {fileID: 84203976746087072}
   - component: {fileID: 6732447451661820265}
+  - component: {fileID: 8026867876600983100}
   m_Layer: 0
   m_Name: ParamEyeBallY
   m_TagString: Untagged
@@ -1447,6 +1448,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: "\u76EE\u7389 Y"
   DisplayName: 
+--- !u!114 &8026867876600983100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742821645562418450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c253e62b97ba834bac8dd1c531f2b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Axis: 1
+  Factor: 1
 --- !u!1 &760581945059158162
 GameObject:
   m_ObjectHideFlags: 0
@@ -1710,6 +1725,7 @@ GameObject:
   - component: {fileID: 323351238758304844}
   - component: {fileID: 957403532414844637}
   - component: {fileID: 5973193432815620283}
+  - component: {fileID: 47663620612295765}
   m_Layer: 0
   m_Name: ParamAngleX
   m_TagString: Untagged
@@ -1762,6 +1778,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: "\u89D2\u5EA6 X"
   DisplayName: 
+--- !u!114 &47663620612295765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806606384836612148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c253e62b97ba834bac8dd1c531f2b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Axis: 0
+  Factor: 30
 --- !u!1 &813968539988627433
 GameObject:
   m_ObjectHideFlags: 0
@@ -6274,6 +6304,7 @@ GameObject:
   - component: {fileID: 5931095125683901282}
   - component: {fileID: 4986859799442844200}
   - component: {fileID: 4849575471203829690}
+  - component: {fileID: 6247681340353784628}
   m_Layer: 0
   m_Name: ParamEyeBallX
   m_TagString: Untagged
@@ -6326,6 +6357,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: "\u76EE\u7389 X"
   DisplayName: 
+--- !u!114 &6247681340353784628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2988273415792622706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c253e62b97ba834bac8dd1c531f2b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Axis: 0
+  Factor: 1
 --- !u!1 &3061089099805466357
 GameObject:
   m_ObjectHideFlags: 0
@@ -17329,6 +17374,7 @@ GameObject:
   - component: {fileID: 9129317385581420718}
   - component: {fileID: 2119902407861264343}
   - component: {fileID: 7718926766785223330}
+  - component: {fileID: 2153974157966639214}
   m_Layer: 0
   m_Name: ParamAngleY
   m_TagString: Untagged
@@ -17381,6 +17427,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: "\u89D2\u5EA6 Y"
   DisplayName: 
+--- !u!114 &2153974157966639214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7435274894875574705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c253e62b97ba834bac8dd1c531f2b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Axis: 1
+  Factor: 30
 --- !u!1 &7517679437442299606
 GameObject:
   m_ObjectHideFlags: 0

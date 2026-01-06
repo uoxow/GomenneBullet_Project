@@ -22,6 +22,7 @@ public class EnemyManager : MonoBehaviour
 
     void Update()
     {   
+        if (!GameManager.Instance.IsGameActive) return;
       /*  // 敵を下方向に移動させる
         transform.position += new Vector3(0, -moveSpeed, 0) * Time.deltaTime;
 

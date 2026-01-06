@@ -10,7 +10,11 @@ using System;
      public bool isGameClear = false;
      public event Action OnGameOver;
      public event Action OnGameClear;
-     
+
+     public event System.Action OnGameStart; // 開始イベント
+     public bool IsGameActive = false;
+
+     [SerializeField] private Countdown countdown;
  
      private void Awake()
      {
@@ -24,6 +28,26 @@ using System;
              Destroy(this.gameObject);
          }
      }
+
+     void Start()
+    {
+        // カウントダウン
+        StartCoroutine(GameStartSequence());
+    }
+
+    IEnumerator GameStartSequence()
+    {
+        for(int i=3 ; i>0 ; i--){
+            //UIでカウントダウン
+            countdown.UpdateCountdownText(i.ToString());
+            yield return new WaitForSeconds(1f);
+        }
+
+        countdown.UpdateCountdownText("START!");
+        countdown.HideCountdown();//UIさよなら
+        IsGameActive = true;
+        OnGameStart?.Invoke(); 
+    }
 
      public void SetGameOver()
     {
