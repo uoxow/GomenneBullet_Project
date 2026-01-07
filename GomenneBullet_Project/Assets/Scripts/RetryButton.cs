@@ -7,5 +7,6 @@ public class RetryButton : MonoBehaviour
     {
         // 現在のシーンを再ロード
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameManager.Instance.StartCoroutine(GameManager.Instance.GameStartSequence());
     }
 }

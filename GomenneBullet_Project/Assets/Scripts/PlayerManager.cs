@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour
     public int maxHP = 7; //最大HP
     public int nowHP; //現在のHP
     private bool isInvincible;
-    public float InvincibleTime = 1f ; //無敵時間(秒)
+    public float InvincibleTime = 0.0f ; //無敵時間(秒)
     private float timer = 0f ;
     [SerializeField]
     private GameObject gameObject;
@@ -25,7 +25,7 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {   
         if (!GameManager.Instance.IsGameActive) return;
-        
+
         //プレイヤーの動き
         float x = Input.GetAxis("Horizontal") * moveSpeed;
         float y = Input.GetAxis("Vertical") * moveSpeed;
@@ -58,6 +58,7 @@ public class PlayerManager : MonoBehaviour
             nowHP -= 1;
             Debug.Log("HP１減少 / 残り: " + nowHP);
             isInvincible = true;
+            timer = 0f;
         }
         //HPゼロになったらゲームオーバー処理
         if(nowHP == 0){
