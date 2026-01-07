@@ -70,7 +70,7 @@ using System;
 
         isGameClear = true;
         Debug.Log("クリア！タイムは " + timemanager.clearTime.ToString("F2") + "秒でした！");
-        clearTimeText.TimeText("time：" + timemanager.clearTime.ToString("F2"));
+        clearTimeText.TimeText("Time：" + timemanager.clearTime.ToString("F2"));
 
         OnGameClear?.Invoke();
     }

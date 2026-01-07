@@ -14,6 +14,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private GameObject gameObject;
     private Animator animator;
+    [SerializeField]
+    private QuizManager quizManager;
 
     void Start()
     {
@@ -60,9 +62,9 @@ public class PlayerManager : MonoBehaviour
             isInvincible = true;
             timer = 0f;
         }
-        //HPゼロになったらゲームオーバー処理
+        //HPゼロになったらQuiz
         if(nowHP == 0){
-            GameManager.Instance.SetGameOver();
+            quizManager.StartQuiz(true);
         }
     }
 

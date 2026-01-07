@@ -16,7 +16,14 @@ public class BulletShoot : MonoBehaviour
     // Update is called once per frame
     void Shoot()
     {
-        //弾発射
-        Instantiate(bulletPrefab, bulletPosition.transform.position, transform.rotation);
+        if (GameManager.Instance != null && 
+            GameManager.Instance.IsGameActive && 
+            !GameManager.Instance.isGameOver && 
+            !GameManager.Instance.isGameClear) 
+        {
+            //弾発射
+            Instantiate(bulletPrefab, bulletPosition.transform.position, transform.rotation);;
+        }
+        
     }
 }
