@@ -19,4 +19,8 @@ public class Countdown : MonoBehaviour
     {
         countdownText.gameObject.SetActive(false);
     }
+    public void DisplayCountdown()
+    {
+        countdownText.gameObject.SetActive(true);
+    }
 }
