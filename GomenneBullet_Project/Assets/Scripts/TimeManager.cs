@@ -1,17 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TimeManager : MonoBehaviour {
 
-    // Use this for initialization
-    void Start () {
-
-    }
+    public float clearTime = 0f; 
 
     void Update () {
-        // 現在のシーンが始まってからの時間
-        float time = Time.timeSinceLevelLoad - 3f; 
-        Debug.Log ("経過時間(秒)" + time);
+        // GameManagerが存在し、ゲームが進行中（Active）かつ
+        // 終わっていない（GameOverでもClearでもない）時だけ時間を進める
+        if (GameManager.Instance != null && 
+            GameManager.Instance.IsGameActive && 
+            !GameManager.Instance.isGameOver && 
+            !GameManager.Instance.isGameClear) 
+        {
+            clearTime += Time.deltaTime;
+            // Debug.Log ("経過時間: " + clearTime.ToString("F2") + "秒");
+        }
     }
 }

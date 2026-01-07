@@ -10,6 +10,8 @@ using System;
      public bool isGameClear = false;
      public event Action OnGameOver;
      public event Action OnGameClear;
+     public TimeManager timemanager;
+     public ClearTimeText clearTimeText;
 
      public event System.Action OnGameStart; // 開始イベント
      public bool IsGameActive = false;
@@ -33,6 +35,7 @@ using System;
     {
         // カウントダウン
         StartCoroutine(GameStartSequence());
+        
     }
 
     public IEnumerator GameStartSequence()
@@ -66,7 +69,8 @@ using System;
         if (isGameClear) return; 
 
         isGameClear = true;
-        Debug.Log("ゲームクリア");
+        Debug.Log("クリア！タイムは " + timemanager.clearTime.ToString("F2") + "秒でした！");
+        clearTimeText.TimeText("time：" + timemanager.clearTime.ToString("F2"));
 
         OnGameClear?.Invoke();
     }
