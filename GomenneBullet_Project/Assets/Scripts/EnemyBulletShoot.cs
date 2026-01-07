@@ -14,23 +14,30 @@ public class EnemyBulletShoot : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {   
-        InvokeRepeating("Shoot", 3f , interval );
+        InvokeRepeating("Shoot", 0f , interval );
     }
 
     // Update is called once per frame
     void Shoot()
     {
-        //弾発射
-        Instantiate(bulletPrefab, bulletPosition.transform.position, transform.rotation);
-        if(enemyManager.nowGauge >= 6){
+        if (GameManager.Instance != null && 
+            GameManager.Instance.IsGameActive && 
+            !GameManager.Instance.isGameOver && 
+            !GameManager.Instance.isGameClear) 
+        {
+            //弾発射
             Instantiate(bulletPrefab, bulletPosition.transform.position, transform.rotation);
-            // 左側の弾（現在の回転から spreadAngle 分だけ左に回転）
-            Quaternion leftRotation = transform.rotation * Quaternion.Euler(0, -spreadAngle, 0);
-            Instantiate(bulletPrefab, bulletPosition.transform.position, leftRotation);
+            if(enemyManager.nowGauge >= 6){
+                Instantiate(bulletPrefab, bulletPosition.transform.position, transform.rotation);
+                // 左側の弾（現在の回転から spreadAngle 分だけ左に回転）
+                Quaternion leftRotation = transform.rotation * Quaternion.Euler(0, -spreadAngle, 0);
+                Instantiate(bulletPrefab, bulletPosition.transform.position, leftRotation);
 
-            // 右側の弾（現在の回転から spreadAngle 分だけ右に回転）
-            Quaternion rightRotation = transform.rotation * Quaternion.Euler(0, spreadAngle, 0);
-            Instantiate(bulletPrefab, bulletPosition.transform.position, rightRotation);
+                // 右側の弾（現在の回転から spreadAngle 分だけ右に回転）
+                Quaternion rightRotation = transform.rotation * Quaternion.Euler(0, spreadAngle, 0);
+                Instantiate(bulletPrefab, bulletPosition.transform.position, rightRotation);
+            }
         }
+        
     }
 }

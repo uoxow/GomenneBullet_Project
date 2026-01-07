@@ -12,6 +12,8 @@ public class EnemyManager : MonoBehaviour
     public int nowGauge;
     [SerializeField]
     private GameObject gameObject;
+    [SerializeField]
+    private QuizManager quizManager;
 
     void Start()
     {
@@ -50,9 +52,9 @@ public class EnemyManager : MonoBehaviour
                 Debug.Log("ゲージ１増加 / 合計 " + nowGauge);
             }
         }
-        //ゲージが満タンになったらクリア処理
+        //ゲージが満タンになったらQuiz
         if(nowGauge >= maxGauge){
-            GameManager.Instance.SetGameClear();
+            quizManager.StartQuiz(false);
         }
     }
 
