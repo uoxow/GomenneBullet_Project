@@ -1,6 +1,6 @@
 # GomenneBullet_Project
-さみしがりやのエルフに愛を伝えるシューティングゲーム\n
-unityroom → https://unityroom.com/games/gomennnebullet
+さみしがりやのエルフに愛を伝えるシューティングゲーム\
+unityroom → https://unityroom.com/games/gomennnebullet\
 
 さみしがりやのエルフは、お互いのメンタルの状態を可視化できるように領域を展開する。
 主人公のライフ(メンタル)が壊れる前に、エルフに愛を伝えきる。
